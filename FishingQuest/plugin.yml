@@ -6,10 +6,6 @@ commands:
    fishingquest:
       description: Initializes the fishing quest for a player
       usage: /fishingquest (No arguments required)	
-   createobjectivea:
-   createobjectiveb:
-   createreturnpoint:
-   createdriedfish:
    fcreate:
       description: (AdminCommand) Creates the 'placeholders' for the fishing quest
       usage: /fcreate [a,b,return,fish]

@@ -23,60 +23,60 @@ public class PlayerInteractListener implements Listener {
 	 * (This only applies for the special fishing part of the quest)
 	 * 
 	 */
-	
+
 	@EventHandler
 	public void LeftClickRod(PlayerInteractEvent e) {
-		
+
 		Player plr = e.getPlayer();
-		
-		
+
+
 		if ((e.getAction().equals(Action.LEFT_CLICK_AIR) && plr.isSneaking())) {
-			
-			
+
+
 			if (plr.getItemInHand().getItemMeta().getDisplayName().equals(ChatColor.AQUA + "Time O'Rod")) {
-				
-				Utils.checkForLocations(plr);
-				
-				if (Utils.hasTeleported.get(plr) == false) {
-					
+
+				//Utils.checkForLocations(plr);
+				if (!Utils.hasTeleported.containsKey(plr)) return;
+				if (!Utils.hasTeleported.get(plr)) {
+
 					switch (Utils.playerPhase.get(plr)) {
-					
-					case 1:
-						plr.teleport(Utils.ObjectiveA);
-						plr.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "WARPED! " + ChatColor.GRAY + "You were warped by your Time O'Rod");
-						plr.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 50, 2));
-						plr.playSound(plr.getLocation(), Sound.ANVIL_LAND, 2, 0);
-						
-						break;
-					case 2:
-						plr.teleport(Utils.ObjectiveB);
-						plr.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "WARPED! " + ChatColor.GRAY + "You were warped by your Time O'Rod");
-						plr.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 50, 2));
-						plr.playSound(plr.getLocation(), Sound.ANVIL_LAND, 2, 0);
-						
-						break;
-						
+
+						case 1:
+							plr.teleport(Utils.ObjectiveA);
+							plr.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "WARPED! " + ChatColor.GRAY + "You were warped by your Time O'Rod");
+							plr.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 50, 2));
+							plr.playSound(plr.getLocation(), Sound.ANVIL_LAND, 2, 0);
+
+							break;
+						case 2:
+							plr.teleport(Utils.ObjectiveB);
+							plr.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "WARPED! " + ChatColor.GRAY + "You were warped by your Time O'Rod");
+							plr.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 50, 2));
+							plr.playSound(plr.getLocation(), Sound.ANVIL_LAND, 2, 0);
+
+							break;
+
 					}
-					
+
 					Utils.hasTeleported.replace(plr, true);
-					
+
 				}
-				else if (Utils.hasTeleported.get(plr) == true){
-					
+				else if (Utils.hasTeleported.get(plr)){
+
 					plr.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "WARPED! " + ChatColor.GRAY + "You were warped by your Time O'Rod");
 					plr.teleport(Utils.ReturnPoint);
 					plr.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 50, 2));
 					plr.playSound(plr.getLocation(), Sound.ANVIL_LAND, 2, 0);
-					
+
 					Utils.hasTeleported.replace(plr, false);
-					
+
 				}
-				
-				
+
+
 			}
-			
+
 		}
-		
+
 	}
 	
 }

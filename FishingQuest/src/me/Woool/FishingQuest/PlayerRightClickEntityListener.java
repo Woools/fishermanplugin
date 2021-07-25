@@ -13,14 +13,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class PlayerRightClickEntityListener implements Listener {
 	
-	public Utils utils = new Utils();
+	// something used to be here. i didn't like it.
 	
 	@EventHandler
 	public void rightClickEntity(PlayerInteractAtEntityEvent e) {
 		
 		Player plr = e.getPlayer();
 		Entity clicked = e.getRightClicked();
-		
+
+		// null check
+		if (clicked.getCustomName() == null) return;
 		if (clicked.getCustomName().equals("DriedFish")) {
 			
 			e.setCancelled(true);
@@ -40,7 +42,7 @@ public class PlayerRightClickEntityListener implements Listener {
 				fishmeta.setDisplayName(ChatColor.YELLOW + "Dried Fish");
 				fish.setItemMeta(fishmeta);
 				
-				if (Utils.hasAvaliableSlot(plr) == true) {
+				if (Utils.hasAvaliableSlot(plr)) {
 					
 					plr.getInventory().addItem(fish);
 					plr.sendMessage(ChatColor.GREEN + "Dried fish obtained!");

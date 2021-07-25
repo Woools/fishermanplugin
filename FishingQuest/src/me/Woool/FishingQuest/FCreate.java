@@ -16,7 +16,7 @@ public class FCreate implements CommandExecutor {
 		
 		ArmorStand as = (ArmorStand) plr.getWorld().spawnEntity(plr.getLocation(), EntityType.ARMOR_STAND);
 		as.setCustomName(name);
-		as.setCustomNameVisible(false);
+		as.setCustomNameVisible(true);
 		as.setGravity(false);
 		as.setVisible(false);
 		// Apparently there's no as.setInvulnerable(true); in 1.8 LOL
@@ -24,7 +24,7 @@ public class FCreate implements CommandExecutor {
 		as.setMaxHealth(2147483647);
 		as.setHealth(as.getMaxHealth());
 		
-		if (isFish == true) {
+		if (isFish) {
 			
 			as.setItemInHand(new ItemStack(Material.COOKED_FISH));
 			

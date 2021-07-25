@@ -36,36 +36,43 @@ public class FishEventListener implements Listener {
 			if (Utils.playerPhase.get(plr) == 1 && Utils.hasTeleported.get(plr) == true) {
 				
 				int random = rand.nextInt(100);
-				
+
 				// Random selection
-				if (random >= 0 && random <= 50) {
-					
+				if (random <= 40) {
+
 					// MAKE GOLD PLS ARTI
 					plr.sendMessage(ChatColor.GOLD + "+100g" + ChatColor.GRAY + " from fishing!");
+					// blatantly copy+pasted code
+					ItemStack junk = new ItemStack(Material.GOLD_INGOT);
+					ItemMeta junkmeta = junk.getItemMeta();
+					junkmeta.setDisplayName(ChatColor.GOLD + "Not 100g");
+					junk.setItemMeta(junkmeta);
+
+					plr.getWorld().dropItem(plr.getLocation().add(new Vector(0,1,0)), junk);
 				}
-				else if(random > 50 && random <= 80) {
-					
+				else if(random <= 70) {
+
 					plr.sendMessage(ChatColor.GRAY + "You found rubbish!");
-					
+
 					ItemStack junk = new ItemStack(Material.INK_SACK);
 					ItemMeta junkmeta = junk.getItemMeta();
 					junkmeta.setDisplayName(ChatColor.GRAY + "Rubbish");
 					junk.setItemMeta(junkmeta);
-					
+
 					plr.getWorld().dropItem(plr.getLocation().add(new Vector(0,1,0)), junk);
-					
+
 				}
-				else if(random > 80 && random <= 100) {
-					
+				else {
+
 					ItemStack fish = new ItemStack(Material.RAW_FISH);
 					fish.setDurability((short) 3);
 					ItemMeta fishmeta = fish.getItemMeta();
-					
+
 					fishmeta.setDisplayName(ChatColor.GOLD + "Tropical Fish");
 					fish.setItemMeta(fishmeta);
-					
+
 					plr.getWorld().dropItem(plr.getLocation().add(new Vector(0,1,0)), fish);
-					
+
 				}
 				
 				
@@ -74,24 +81,31 @@ public class FishEventListener implements Listener {
 				
 				// Here's normal fishing, you can mess around with this in any way you'd like
 				int random = rand.nextInt(100);
-				
-				if (random >= 0 && random <= 60) {
-					
+
+				if (random <= 60) {
+
 					// MAKE GOLD PLS ARTI
 					plr.sendMessage(ChatColor.GOLD + "+100g" + ChatColor.GRAY + " from fishing!");
-					
+					// blatantly copy+pasted code
+					ItemStack junk = new ItemStack(Material.GOLD_INGOT);
+					ItemMeta junkmeta = junk.getItemMeta();
+					junkmeta.setDisplayName(ChatColor.GOLD + "Not 100g");
+					junk.setItemMeta(junkmeta);
+
+					plr.getWorld().dropItem(plr.getLocation().add(new Vector(0,1,0)), junk);
+
 				}
-				else if (random > 60 && random <= 100) {
-					
+				else {
+
 					plr.sendMessage(ChatColor.GRAY + "You found rubbish");
-					
+
 					ItemStack junk = new ItemStack(Material.INK_SACK);
 					ItemMeta junkmeta = junk.getItemMeta();
 					junkmeta.setDisplayName(ChatColor.GRAY + "Rubbish");
 					junk.setItemMeta(junkmeta);
-					
+
 					plr.getWorld().dropItem(plr.getLocation().add(new Vector(0,1,0)), junk);
-					
+
 				}
 				
 			}

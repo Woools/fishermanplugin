@@ -59,6 +59,20 @@ public class Utils {
 	public static Location ObjectiveA;
 	public static Location ObjectiveB;
 	public static Location ReturnPoint;
+
+	// A static block is used to initialize variables right as the plugin is loaded - it's only loaded once
+	static {
+		Main plugin = Main.getInstance();
+		ObjectiveA = new Location(Bukkit.getWorld("redacted2"), plugin.getConfig().getDouble("objectivea.x"),
+				plugin.getConfig().getDouble("objectivea.y"),
+				plugin.getConfig().getDouble("objectivea.z"));
+		ObjectiveB = new Location(Bukkit.getWorld("redacted2"), plugin.getConfig().getDouble("objectiveb.x"),
+				plugin.getConfig().getDouble("objectiveb.y"),
+				plugin.getConfig().getDouble("objectiveb.z"));
+		ReturnPoint = new Location(Bukkit.getWorld("redacted2"), plugin.getConfig().getDouble("return.x"),
+				plugin.getConfig().getDouble("return.y"),
+				plugin.getConfig().getDouble("return.z"));
+	}
 	
 	// Methods
 	

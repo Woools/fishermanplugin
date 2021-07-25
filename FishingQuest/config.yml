@@ -1,0 +1,16 @@
+objectivea:
+  x: 0
+  y: 150
+  z: 0
+objectiveb:
+  x: 0
+  y: 150
+  z: 0
+return:
+  x: -90
+  y: 45
+  z: -15
+fish:
+  x: 0
+  y: 150
+  z: 0
